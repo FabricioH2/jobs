@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hola-mundo-job
+  namespace: ffisa-dev   # 👈 cambia esto por tu namespace
+spec:
+  template:
+    metadata:
+      labels:
+        job: hola-mundo
+    spec:
+      containers:
+        - name: hola-mundo
+          image: busybox
+          command: ["echo", "Hola Mundo desde OpenShift! 👋"]
+      restartPolicy: Never
+  backoffLimit: 2
