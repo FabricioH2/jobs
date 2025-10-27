@@ -11,7 +11,7 @@ spec:
     spec:
       completitions: 10
       parallelism: 3
-        template:
+      template:
     spec:
       containers:
         - name: hola-mundo
