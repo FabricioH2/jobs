@@ -11,16 +11,15 @@ spec:
     spec:
       completitions: 10
       parallelism: 3
-      template:
-        spec:
-
-          containers:
-            - name: hola-mundo
-              image: busybox
-              command: ["/bin/sh","-c"]
-              args:
-              - |
-                sleep 60
-                echo "Hallo ..."
-          restartPolicy: Never
-  backoffLimit: 2
+        template:
+    spec:
+      containers:
+        - name: hola-mundo
+          image: busybox:latest
+          command: ["/bin/sh", "-c"]
+          args:
+          - |
+            sleep 60
+            echo "hola mundo"
+      restartPolicy: Never
+  backoffLimit: 2  # Número de reintentos en caso de fallo
