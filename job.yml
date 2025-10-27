@@ -9,9 +9,18 @@ spec:
       labels:
         job: hola-mundo
     spec:
-      containers:
-        - name: hola-mundo
-          image: busybox
-          command: ["echo", "Hola Mundo desde OpenShift! 👋"]
-      restartPolicy: Never
+      completitions: 10
+      parallelism: 3
+      template:
+        spec:
+
+          containers:
+            - name: hola-mundo
+              image: busybox
+              command: ["/bin/sh","-c"]
+              args:
+              - |
+                sleep 60
+                echo "Hallo ..."
+          restartPolicy: Never
   backoffLimit: 2
